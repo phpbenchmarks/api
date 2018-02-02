@@ -1,0 +1,17 @@
+{
+    "name": "phpbenchmarks/api",
+    "license": "proprietary",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "PhpBenchmarksApi\\": ""
+        }
+    },
+    "require": {
+        "php": "^5.4||^7.0",
+        "ext-curl": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.5"
+    }
+}
