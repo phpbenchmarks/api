@@ -1,3 +1,6 @@
+[![version](https://img.shields.io/badge/version-dev-red.svg)](https://github.com/phpbenchmarks/api)
+[![php](https://img.shields.io/badge/php-^5.4%20||%20^7.0-blue.svg)](http://www.php.net)
+
 <p align="center">
   <img src="http://www.phpbenchmarks.com/images/logo_github.png">
   <br>
@@ -14,14 +17,8 @@ You can compare results between Apache Bench and Siege, PHP 5.6 to 7.2 and versi
 
 It's wrapper to call phpbenchmarks API.
 
-[Subcribe to API](http://www.phpbenchmarks.com/en/our-services)
-
 Source code should be compatible with PHP 5.4, so don't expect to see nice PHP 7 code here ;)
 
 ## Installation
 
-```bash
-composer require phpbenchmarks/api ^1.0
-```
-
-See [Our services](http://www.phpbenchmarks.com/en/our-services) section on phpbenchmarks.com to see how to use  it. 
+Do not use if for now!
