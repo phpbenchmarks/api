@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpBenchmarksApi\Behavior;
+namespace PhpBenchmarksApi\Api\Behavior;
 
 trait PositionBackgroundColorTrait
 {

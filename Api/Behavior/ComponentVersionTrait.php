@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpBenchmarksApi\Behavior;
+namespace PhpBenchmarksApi\Api\Behavior;
 
 trait ComponentVersionTrait
 {
@@ -10,7 +10,7 @@ trait ComponentVersionTrait
     protected $componentVersion;
 
     /**
-     * @param ?string $componentVersion
+     * @param ?string $componentVersion Use FrameworkService constants
      * @return $this
      */
     public function setComponentVersion($componentVersion)

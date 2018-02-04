@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpBenchmarksApi\Behavior;
+namespace PhpBenchmarksApi\Api\Behavior;
 
 trait BenchmarkTrait
 {
@@ -10,7 +10,7 @@ trait BenchmarkTrait
     protected $benchmark;
 
     /**
-     * @param ?int $benchmark
+     * @param ?int $benchmark Use BenchmarkService constants
      * @return $this
      */
     public function setBenchmark($benchmark)

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpBenchmarksApi\Behavior;
+namespace PhpBenchmarksApi\Api\Behavior;
 
 trait BorderTypeTrait
 {
@@ -10,7 +10,7 @@ trait BorderTypeTrait
     protected $borderType;
 
     /**
-     * @param ?int $borderType
+     * @param ?int $borderType Use BorderTypeService constants
      * @return $this
      */
     public function setBorderType($borderType)

@@ -8,12 +8,14 @@ use PhpBenchmarksApi\Api\Behavior;
 use PhpBenchmarksApi\Service\BenchmarkToolService;
 use PhpBenchmarksApi\Service\PhpVersionService;
 
-class BadgeApi extends AbstractApi
+class SummaryApi extends AbstractApi
 {
     use Behavior\BenchmarkToolTrait;
     use Behavior\PhpVersionTrait;
     use Behavior\ComponentVersionTrait;
     use Behavior\BenchmarkTrait;
+    use Behavior\BackgroundColorTrait;
+    use Behavior\FontColorTrait;
     use Behavior\ShowScoreTrait;
     use Behavior\ScoreBackgroundColorTrait;
     use Behavior\ScoreFontColorTrait;
@@ -36,6 +38,8 @@ class BadgeApi extends AbstractApi
     {
         $parameters = $this->createUrlParameters($this->getBenchmarkTool(), $this->getPhpVersion());
         $parameters[$this->getBenchmarkUrlParameterName()] = $this->getBenchmark();
+        $parameters[$this->getBackgroundColorParameterName()] = $this->getBackgroundColor();
+        $parameters[$this->getFontColorParameterName()] = $this->getFontColor();
         $parameters[$this->getShowScoreUrlParameterName()] = $this->isShowScore();
         $parameters[$this->getScoreBackgroundColorUrlParameterName()] = $this->getScoreBackgroundColor();
         $parameters[$this->getScoreFontColorUrlParameterName()] = $this->getScoreFontColor();

@@ -2,18 +2,18 @@
 
 namespace PhpBenchmarksApi\Tests\Laravel55;
 
-use PhpBenchmarksApi\Api\BadgeApi;
+use PhpBenchmarksApi\Api\SummaryApi;
 use PhpBenchmarksApi\Service\BenchmarkToolService;
 use PhpBenchmarksApi\Service\FrameworkService;
 use PhpBenchmarksApi\Service\PhpVersionService;
 use PhpBenchmarksApi\Tests\AbstractApiTestCase;
 
 /**
- * @group BadgeApi
+ * @group SummaryApi
  * @group Laravel
  * @group Laravel55
  */
-class BadgeApiTest extends AbstractApiTestCase
+class SummaryApiTest extends AbstractApiTestCase
 {
     /**
      * @group BenchmarkToolApacheBench
@@ -21,10 +21,10 @@ class BadgeApiTest extends AbstractApiTestCase
      */
     public function testApacheBenchPhp70()
     {
-        $badgeApi = $this->createBadgeApi(BenchmarkToolService::APACHE_BENCH, PhpVersionService::VERSION_7_0);
-        $data = $badgeApi->getData();
+        $summaryApi = $this->createSummaryApi(BenchmarkToolService::APACHE_BENCH, PhpVersionService::VERSION_7_0);
+        $data = $summaryApi->getData();
 
-        static::assertApiErrors($badgeApi);
+        static::assertApiErrors($summaryApi);
         static::assertEquals(0, strlen($data));
     }
 
@@ -34,10 +34,10 @@ class BadgeApiTest extends AbstractApiTestCase
      */
     public function testApacheBenchPhp71()
     {
-        $badgeApi = $this->createBadgeApi(BenchmarkToolService::APACHE_BENCH, PhpVersionService::VERSION_7_1);
-        $data = $badgeApi->getData();
+        $summaryApi = $this->createSummaryApi(BenchmarkToolService::APACHE_BENCH, PhpVersionService::VERSION_7_1);
+        $data = $summaryApi->getData();
 
-        static::assertApiErrors($badgeApi);
+        static::assertApiErrors($summaryApi);
         static::assertEquals(0, strlen($data));
     }
 
@@ -47,10 +47,10 @@ class BadgeApiTest extends AbstractApiTestCase
      */
     public function testApacheBenchPhp72()
     {
-        $badgeApi = $this->createBadgeApi(BenchmarkToolService::APACHE_BENCH, PhpVersionService::VERSION_7_2);
-        $data = $badgeApi->getData();
+        $summaryApi = $this->createSummaryApi(BenchmarkToolService::APACHE_BENCH, PhpVersionService::VERSION_7_2);
+        $data = $summaryApi->getData();
 
-        static::assertApiErrors($badgeApi);
+        static::assertApiErrors($summaryApi);
         static::assertEquals(0, strlen($data));
     }
 
@@ -60,10 +60,10 @@ class BadgeApiTest extends AbstractApiTestCase
      */
     public function testSiegePhp70()
     {
-        $badgeApi = $this->createBadgeApi(BenchmarkToolService::SIEGE, PhpVersionService::VERSION_7_0);
-        $data = $badgeApi->getData();
+        $summaryApi = $this->createSummaryApi(BenchmarkToolService::SIEGE, PhpVersionService::VERSION_7_0);
+        $data = $summaryApi->getData();
 
-        static::assertApiErrors($badgeApi);
+        static::assertApiErrors($summaryApi);
         static::assertEquals(0, strlen($data));
     }
 
@@ -73,10 +73,10 @@ class BadgeApiTest extends AbstractApiTestCase
      */
     public function testSiegePhp71()
     {
-        $badgeApi = $this->createBadgeApi(BenchmarkToolService::SIEGE, PhpVersionService::VERSION_7_1);
-        $data = $badgeApi->getData();
+        $summaryApi = $this->createSummaryApi(BenchmarkToolService::SIEGE, PhpVersionService::VERSION_7_1);
+        $data = $summaryApi->getData();
 
-        static::assertApiErrors($badgeApi);
+        static::assertApiErrors($summaryApi);
         static::assertEquals(0, strlen($data));
     }
 
@@ -86,17 +86,17 @@ class BadgeApiTest extends AbstractApiTestCase
      */
     public function testSiegePhp72()
     {
-        $badgeApi = $this->createBadgeApi(BenchmarkToolService::SIEGE, PhpVersionService::VERSION_7_2);
-        $data = $badgeApi->getData();
+        $summaryApi = $this->createSummaryApi(BenchmarkToolService::SIEGE, PhpVersionService::VERSION_7_2);
+        $data = $summaryApi->getData();
 
-        static::assertApiErrors($badgeApi);
+        static::assertApiErrors($summaryApi);
         static::assertEquals(0, strlen($data));
     }
 
-    /** @return BadgeApi */
-    protected function createBadgeApi($benchmarkTool, $phpVersion)
+    /** @return SummaryApi */
+    protected function createSummaryApi($benchmarkTool, $phpVersion)
     {
-        return (new BadgeApi($this->getToken()))
+        return (new SummaryApi($this->getToken()))
             ->setBenchmarkTool($benchmarkTool)
             ->setPhpVersion($phpVersion)
             ->setComponentVersion(FrameworkService::LARAVEL_5_5);

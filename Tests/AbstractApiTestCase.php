@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpBenchmarksApi\Tests;
 
-use PhpBenchmarksApi\Behavior\ApiInterface;
+use PhpBenchmarksApi\Api\ApiInterface;
 use PHPUnit\Framework\TestCase;
 
 abstract class AbstractApiTestCase extends TestCase

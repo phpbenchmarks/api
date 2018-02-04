@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpBenchmarksApi\Behavior;
+namespace PhpBenchmarksApi\Api\Behavior;
 
 trait PhpVersionTrait
 {
@@ -10,7 +10,7 @@ trait PhpVersionTrait
     protected $phpVersion;
 
     /**
-     * @param ?string $phpVersion
+     * @param ?string $phpVersion Use PhpVersionService constants
      * @return $this
      */
     public function setPhpVersion($phpVersion)
