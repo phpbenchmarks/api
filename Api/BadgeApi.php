@@ -22,9 +22,11 @@ class BadgeApi extends Behavior\AbstractApi
     use Behavior\PositionFontColorTrait;
     use Behavior\BorderTypeTrait;
 
-    public function __construct()
+    /** @param string $token */
+    public function __construct($token)
     {
         $this
+            ->setToken($token)
             ->setBenchmarkTool(BenchmarkToolService::getDefault())
             ->setPhpVersion(PhpVersionService::getDefault());
     }

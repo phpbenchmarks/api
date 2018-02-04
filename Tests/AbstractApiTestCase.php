@@ -19,4 +19,15 @@ abstract class AbstractApiTestCase extends TestCase
         static::assertFalse($api->hasErrors());
         static::assertEquals(0, count($api->getErrors()));
     }
+
+    /** @return string */
+    protected function getToken()
+    {
+        $return = require __DIR__ . '/Token.php';
+        if ($return == null) {
+            throw new \Exception('You have to write your phpbenchmarks api token in Token.php');
+        }
+
+        return $return;
+    }
 }

@@ -12,11 +12,14 @@ abstract class AbstractApi implements ApiInterface
     const ERROR_HTTP_CODE = 1;
     const ERROR_INVALID_RETURN = 2;
 
-    /** @var ?string */
+    /** @var string */
     protected $token;
 
     /** @var ?string */
     protected $url;
+
+    /** @var bool */
+    protected $dev = false;
 
     /** @var string[] */
     protected $errors = [];
@@ -32,7 +35,7 @@ abstract class AbstractApi implements ApiInterface
         return $this;
     }
 
-    /** @return ?string */
+    /** @return string */
     public function getToken()
     {
         return $this->token;
@@ -65,6 +68,23 @@ abstract class AbstractApi implements ApiInterface
         $this->url = $url;
 
         return $this;
+    }
+
+    /**
+     * @param bool $dev
+     * @return $this
+     */
+    public function setDev($dev)
+    {
+        $this->dev = boolval($dev);
+
+        return $this;
+    }
+
+    /** @return bool */
+    public function isDev()
+    {
+        return $this->dev;
     }
 
     /**
@@ -113,6 +133,11 @@ abstract class AbstractApi implements ApiInterface
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $this->getUrl());
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        $headers = ['X-PhpBenchmarks-Api-Token' => $this->getToken()];
+        if ($this->isDev()) {
+            $headers['X-PhpBenchmarks-Api-Dev'] = true;
+        }
+        curl_setopt($curl, CURLOPT_HEADER, $headers);
         $return = curl_exec($curl);
         $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
         curl_close($curl);
