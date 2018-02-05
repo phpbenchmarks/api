@@ -50,7 +50,7 @@ class SummaryApi extends AbstractApi
 
         return $this
             ->setUrl(
-                'http://api.phpbenchmarks.com/benchmark/badge/'
+                'http://api.phpbenchmarks.com/benchmark/summary/'
                 . ($this->getComponentVersion() !== null ? $this->getComponentVersion() : $this->getPhpVersion())
             )
             ->appendParametersToUrl($parameters)

@@ -25,31 +25,31 @@ class TableApi extends AbstractApi
     use Behavior\BorderTypeTrait;
 
     /** @var string */
-    protected $tableBorderColor = '#e1e1e4';
+    protected $tableBorderColor;
 
     /** @var string */
-    protected $tableHeaderBackgroundColor = '#d2d2d2';
+    protected $tableHeaderBackgroundColor;
 
     /** @var string */
-    protected $tableHeaderBorderColor = '#e1e1e4';
+    protected $tableHeaderBorderColor;
 
     /** @var string */
-    protected $tableHeaderFontColor = '#000000';
+    protected $tableHeaderFontColor;
 
     /** @var string */
-    protected $tableLineBackgroundColor = '#ffffff';
+    protected $tableLineBackgroundColor;
 
     /** @var string */
-    protected $tableLineFontColor = '#000000';
+    protected $tableLineFontColor;
 
     /** @var string */
-    protected $tableLineAlternateBackgroundColor = '#eaf3f7';
+    protected $tableLineAlternateBackgroundColor;
 
     /** @var string */
-    protected $tableLineAlternateFontColor = '#000000';
+    protected $tableLineAlternateFontColor;
 
     /** @var string */
-    protected $legendFontColor = '#646464';
+    protected $legendFontColor;
 
     /** @param string $token */
     public function __construct($token)
@@ -239,7 +239,7 @@ class TableApi extends AbstractApi
 
         return $this
             ->setUrl(
-                'http://api.phpbenchmarks.com/benchmark/badge/'
+                'http://api.phpbenchmarks.com/benchmark/table/'
                 . ($this->getComponentVersion() !== null ? $this->getComponentVersion() : $this->getPhpVersion())
             )
             ->appendParametersToUrl($parameters)

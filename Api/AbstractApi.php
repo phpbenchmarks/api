@@ -131,13 +131,18 @@ abstract class AbstractApi implements ApiInterface
     protected function call()
     {
         $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, $this->getUrl());
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        $headers = ['X-PhpBenchmarks-Api-Token' => $this->getToken()];
+        $headers = ['X-PhpBenchmarks-Api-Token: ' . $this->getToken()];
         if ($this->isDev()) {
-            $headers['X-PhpBenchmarks-Api-Dev'] = true;
+            $headers[] = 'X-PhpBenchmarks-Api-Dev: 1';
         }
-        curl_setopt($curl, CURLOPT_HEADER, $headers);
+        curl_setopt_array(
+            $curl,
+            [
+                CURLOPT_URL => $this->getUrl(),
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_HTTPHEADER => $headers
+            ]
+        );
         $return = curl_exec($curl);
         $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
         curl_close($curl);
